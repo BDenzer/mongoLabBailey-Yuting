@@ -10,8 +10,10 @@
 
             <form ng-submit="addData()">
                 <input ng-model="textField" type="text" size="50" placeholder="add a new item to the list!">
+                <input ng-model="textFieldWeight" type="text" size="50" placeholder="add weight">
                 <input type="submit" value="submit" class="btn btn-primary">
-                <span class="floatRight">Items in this list: {{itemsInList()}}</span>
+                <!--<span class="floatRight">Items in this list: {{itemsInList()}}</span> -->
+                <span class="floatRight">Largest pet: {{returnHeaviest()}}</span>
             </form>
 
         </li>
