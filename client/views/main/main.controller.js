@@ -8,12 +8,9 @@ angular.module("appModule")
 
         $scope.textFieldWeight = "";
         // Normally, data like this would be stored in a database, and this controller would issue an http:get request for it.
-        $scope.data = [
-            {text: "fish", weight: 0},
-            {text: "test", weight: 5},
-            {text: "fish2", weight: 3}
+        $scope.data = {
 
-        ];
+        };
 
         $scope.getPets = function(){
             $http.get('api/pets').success(function(pets) {
@@ -21,13 +18,16 @@ angular.module("appModule")
             });
         };
 
-        $scope.getPets();
+
 
         $scope.addData = function(){
             if($scope.textField.length >= 1) {
                 $http.post('api/pets', {text: $scope.textField}).success(function(){
                     $scope.getPets();
                 });
+                /*$http.post('api/pets', {weight: $scope.textFieldWeight}).success(function(){
+                    $scope.getPets();
+                });*/
                 $scope.textField = "";
                 $scope.textFieldWeight = "";
             }
@@ -48,15 +48,16 @@ angular.module("appModule")
         };
 
         $scope.returnHeaviest = function(){
-            var maxWeight = $scope.data[0].weight;
-            var name = $scope.data[0].text;
-            for(var i = 1; i < $scope.data.length; i++){
-                if($scope.data[i].weight > maxWeight){
-                    maxWeight = $scope.data[i].weight;
+            var maxWeight = 0;
+            var name = "";
+            for(var i = 0; i < $scope.data.length; i++){
+                if(parseFloat($scope.data[i].weight) > maxWeight){
+                    maxWeight =parseFloat($scope.data[i].weight);
                     name = $scope.data[i].text
                 }
             }
             return name + " " + maxWeight;
+            //return 5;
         };
 
     });
