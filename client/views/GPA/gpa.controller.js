@@ -43,25 +43,38 @@ angular.module("appModule")
             });
         };
 
-        $scope.cat = function(str1, str2){
-            return str1 + str2;
-        };
-
-        $scope.itemsInList = function(){
-            return $scope.data.length;
-        };
-
-        $scope.returnHeaviest = function(){
-            var maxWeight = 0;
-            var name = "";
-            for(var i = 0; i < $scope.data.length; i++){
-                if(parseFloat($scope.data[i].weight) > maxWeight){
-                    maxWeight =parseFloat($scope.data[i].weight);
-                    name = $scope.data[i].text
-                }
+        $scope.calculateGPA = function(){
+            var top = 0;
+            var bottom = 0;
+            var result = 0;
+            for (var i=0;i<$scope.data.length;i++) {
+                top = top + Number($scope.data[i].credits)*Number($scope.changeToNumber($scope.data[i].grade));
+                bottom=bottom + Number($scope.data[i].credits);
             }
-            return name + " " + maxWeight;
-            //return 5;
+            result = top/bottom;
+            return result;
         };
 
+        $scope.changeToNumber = function(grade){
+            var result=0;
+            switch(grade) {
+                case "A":
+                    return result=4.0;
+                    break;
+                case "B":
+                   return  result = 3.0;
+                    break;
+                case "C":
+                    return result=2.0;
+                    break;
+                case "D":
+                    return result = 1.0;
+                    break;
+                case "F":
+                    return result=0.0;
+                    break;
+
+            }
+            return null;
+        }
     });

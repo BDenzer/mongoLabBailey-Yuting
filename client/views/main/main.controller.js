@@ -31,9 +31,7 @@ angular.module("appModule")
             }
         };
 
-        $scope.removeData = function(index){it('dummy test should pass', function(){
-        expect(true).toEqual(true);
-    });
+        $scope.removeData = function(index) {
             $http.delete('/api/pets/' + $scope.data[index]._id).success(function(){
                 $scope.getPets();
             });

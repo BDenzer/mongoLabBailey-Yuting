@@ -12,11 +12,11 @@
                 <input ng-model="textFieldCredits" type="text" size="50" placeholder="add credits">
                 <input type="submit" value="submit" class="btn btn-primary">
                 <!--<span class="floatRight">Items in this list: {{itemsInList()}}</span> -->
-                <span class="floatRight">Largest pet: {{returnHeaviest()}}</span>
+                <span class="floatRight">Semester GPA: {{calculateGPA()}}</span>
             </form>
 
         </li>
-        <li class="list-group-item" ng-repeat="test in data">Class:{{test.classes}}  ,       Grade:{{test.grade}}, Credits:{{test.credits}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
+        <li class="list-group-item" ng-repeat="test in data">Class:{{test.classes}},       Grade:{{test.grade}},       Credits:{{test.credits}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
         <!--<li class="list-group-item" ng-repeat="test in data">{{test.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>-->
     </ul>
 </div>
