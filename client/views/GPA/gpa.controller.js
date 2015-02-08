@@ -7,9 +7,11 @@ angular.module("appModule")
     .controller('GPACtrl', function($scope, $http){
         console.log("GPA controller loaded!");
 
-        $scope.textField = "";
+        $scope.textFieldClasses = "";
 
-        $scope.textFieldWeight = "";
+        $scope.textFieldCredits = "";
+
+        $scope.textFieldGrade = "";
         // Normally, data like this would be stored in a database, and this controller would issue an http:get request for it.
         $scope.data = [
             //used for testing purposes
@@ -24,19 +26,18 @@ angular.module("appModule")
         };
 
 
-        $scope.addData = function(){
-            if($scope.textField.length >= 1) {
-                $http.post('api/gpaDatabase', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
+        $scope.addClassInfo = function(){
+            if($scope.textFieldClasses.length >= 1) {
+                $http.post('api/gpaDatabase', {classes: $scope.textFieldClasses, grade: $scope.textFieldGrade, credits:$scope.textFieldCredits}).success(function(){
                     $scope.getGPA();
                 });
-                $scope.textField = "";
-                $scope.textFieldWeight = "";
+                $scope.textFieldClasses = "";
+                $scope.textFieldGrade = "";
+                $scope.textFieldCredits = "";
             }
         };
 
-        $scope.removeData = function(index){it('dummy test should pass', function(){
-            expect(true).toEqual(true);
-        });
+        $scope.removeData = function(index){
             $http.delete('/api/gpaDatabase/' + $scope.data[index]._id).success(function(){
                 $scope.getGPA();
             });

@@ -6,16 +6,17 @@
     <ul class="list-group">
         <li class="list-group-item">
 
-            <form ng-submit="addData()">
-                <input ng-model="textField" type="text" size="50" placeholder="add a new item to the list!">
-                <input ng-model="textFieldWeight" type="text" size="50" placeholder="add weight">
+            <form ng-submit="addClassInfo()">
+                <input ng-model="textFieldClasses" type="text" size="50" placeholder="add a new class">
+                <input ng-model="textFieldGrade" type="text" size="50" placeholder="add grade">
+                <input ng-model="textFieldCredits" type="text" size="50" placeholder="add credits">
                 <input type="submit" value="submit" class="btn btn-primary">
                 <!--<span class="floatRight">Items in this list: {{itemsInList()}}</span> -->
                 <span class="floatRight">Largest pet: {{returnHeaviest()}}</span>
             </form>
 
         </li>
-        <li class="list-group-item" ng-repeat="test in data">Animal:{{test.text}}  ,              Weight:{{test.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
+        <li class="list-group-item" ng-repeat="test in data">Class:{{test.classes}}  ,       Grade:{{test.grade}}, Credits:{{test.credits}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
         <!--<li class="list-group-item" ng-repeat="test in data">{{test.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>-->
     </ul>
 </div>

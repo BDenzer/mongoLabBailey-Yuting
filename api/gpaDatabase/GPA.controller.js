@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 // =====================================================
 
 var Gpa = mongoose.model('Gpa', {
-    course: String,
+    classes: String,
     grade: String,
     credits: Number
 
