@@ -44,9 +44,7 @@ angular.module("appModule")
         };
 
         $scope.itemsInList = function(){
-            return $scope.data.length;it('dummy test should pass', function(){
-        expect(true).toEqual(true);
-    });
+            return $scope.data.length;
         };
 
         $scope.returnHeaviest = function(){
