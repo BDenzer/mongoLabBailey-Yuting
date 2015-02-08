@@ -17,7 +17,7 @@ angular.module("appModule")
             //{text:"dog",weight:6}
         ];
 
-        $scope.getPets = function(){
+        $scope.getGPA = function(){
             $http.get('api/gpaDatabase').success(function(GPA) {
                 $scope.data = GPA;
             });
@@ -27,7 +27,7 @@ angular.module("appModule")
         $scope.addData = function(){
             if($scope.textField.length >= 1) {
                 $http.post('api/gpaDatabase', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
-                    $scope.getPets();
+                    $scope.getGPA();
                 });
                 $scope.textField = "";
                 $scope.textFieldWeight = "";
@@ -38,7 +38,7 @@ angular.module("appModule")
             expect(true).toEqual(true);
         });
             $http.delete('/api/gpaDatabase/' + $scope.data[index]._id).success(function(){
-                $scope.getPets();
+                $scope.getGPA();
             });
         };
 
