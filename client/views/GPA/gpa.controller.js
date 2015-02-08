@@ -15,8 +15,9 @@ angular.module("appModule")
         // Normally, data like this would be stored in a database, and this controller would issue an http:get request for it.
         $scope.data = [
             //used for testing purposes
-            //{text:"cat",weight:3},
-            //{text:"dog",weight:6}
+            //{classes:"cat",credits:5, grade:"A"},
+            //{classes:"dog",credits:4, grade:"B"},
+            //{classes:"test",credits:1, grade:"F"}
         ];
 
         $scope.getGPA = function(){
@@ -36,6 +37,8 @@ angular.module("appModule")
                 $scope.textFieldCredits = "";
             }
         };
+
+
 
         $scope.removeData = function(index){
             $http.delete('/api/gpaDatabase/' + $scope.data[index]._id).success(function(){
@@ -76,5 +79,20 @@ angular.module("appModule")
 
             }
             return null;
-        }
+        };
+
+        $scope.helperTestAddClasses = function(){
+            $scope.textFieldClasses = "CSci 3601";
+            $scope.textFieldCredits = 5;
+            $scope.textFieldGrades = "A";
+            $scope.addClassInfo();
+            $scope.textFieldClasses = "CSci 3401";
+            $scope.textFieldCredits = 4;
+            $scope.textFieldGrades = "B";
+            $scope.addClassInfo();
+            $scope.textFieldClasses = "class5";
+            $scope.textFieldCredits = 1;
+            $scope.textFieldGrades = "F";
+            $scope.addClassInfo();
+        };
     });
