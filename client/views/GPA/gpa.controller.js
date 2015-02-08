@@ -18,15 +18,15 @@ angular.module("appModule")
         ];
 
         $scope.getPets = function(){
-            $http.get('api/pets').success(function(pets) {
-                $scope.data = pets;
+            $http.get('api/gpaDatabase').success(function(GPA) {
+                $scope.data = GPA;
             });
         };
 
 
         $scope.addData = function(){
             if($scope.textField.length >= 1) {
-                $http.post('api/pets', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
+                $http.post('api/gpaDatabase', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
                     $scope.getPets();
                 });
                 $scope.textField = "";
@@ -37,7 +37,7 @@ angular.module("appModule")
         $scope.removeData = function(index){it('dummy test should pass', function(){
             expect(true).toEqual(true);
         });
-            $http.delete('/api/pets/' + $scope.data[index]._id).success(function(){
+            $http.delete('/api/gpaDatabase/' + $scope.data[index]._id).success(function(){
                 $scope.getPets();
             });
         };
@@ -47,9 +47,7 @@ angular.module("appModule")
         };
 
         $scope.itemsInList = function(){
-            return $scope.data.length;it('dummy test should pass', function(){
-                expect(true).toEqual(true);
-            });
+            return $scope.data.length;
         };
 
         $scope.returnHeaviest = function(){

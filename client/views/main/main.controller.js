@@ -22,7 +22,7 @@ angular.module("appModule")
 
 
         $scope.addData = function(){
-            if($scope.textField.length >= 1) {
+            if($scope.textField.length >= 1 && $scope.textFieldWeight >= 0) {
                 $http.post('api/pets', {text: $scope.textField, weight: $scope.textFieldWeight}).success(function(){
                     $scope.getPets();
                 });

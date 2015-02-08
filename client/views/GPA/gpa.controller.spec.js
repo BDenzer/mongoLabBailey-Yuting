@@ -1,3 +1,6 @@
+/**
+ * Created by denz0045 on 2/8/15.
+ */
 'use strict';
 
 //=== Testing mainCtrl =============================================
@@ -24,10 +27,7 @@ describe('Testing controller: mainCtrl', function(){
     });
 
     it('Testing returnHeaviest function, should pass', function(){
-       expect(scope.returnHeaviest() == "cat " + 3).toEqual(true);
-    });
-
-    it('Can only add numbers to the weight field of the pets database', function(){
         expect(scope.returnHeaviest() == "cat " + 3).toEqual(true);
     });
+
 });
